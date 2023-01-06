@@ -26,3 +26,4 @@ public class ImplicitWait
 		driver.findElement(By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[text()='Freelance']")).click();
+		remove/add
