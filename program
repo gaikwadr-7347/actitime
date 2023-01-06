@@ -1,0 +1,28 @@
+package GroomingTasks;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ISelect;
+import org.openqa.selenium.support.ui.Select;
+
+public class ImplicitWait
+{
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		WebDriver driver=new ChromeDriver ();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.findElement(By.name("username")).sendKeys("admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.xpath("//button[text()=' Login ']")).click();
+		driver.findElement(By.xpath("//span[text()='PIM']")).click();
+		driver.findElement(By.xpath("(//input[@placeholder='Type for hints...'])[1]")).sendKeys("Dev Navgire");
+		//	driver.findElement(By.xpath("(//input[@class='oxd-input oxd-input--active'])[1]")).sendKeys("22");
+		driver.findElement(By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[text()='Freelance']")).click();
